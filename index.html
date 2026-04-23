@@ -3,9 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>CineSearch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Style/style.css">
 </head>
 <body>
- Jai Baba Ki
+ 
+  <div class="grain-overlay"></div>
+ 
+  <header id="navbar">
+    <div class="nav-inner">
+      <div class="logo">
+        <span class="logo-icon">&#9654;</span>
+        <span class="logo-text">CineSearch</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" data-type="movie" class="nav-link active">Movies</a></li>
+          <li><a href="#" data-type="series" class="nav-link">TV Series</a></li>
+          <li><a href="#" data-type="" class="nav-link">All</a></li>
+          <li>
+            <button class="watchlist-toggle" id="watchlistToggle">
+              <span class="wl-icon">&#9734;</span>
+              <span>Watchlist</span>
+              <span class="wl-count" id="wlCount">0</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+ 
+  <main>
+ 
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Find your next obsession</p>
+        <h1 class="hero-title">Every film.<br>Every story.</h1>
+        <div class="search-wrapper">
+          <div class="search-input-group">
+            <span class="search-icon">&#128269;</span>
+            <input
+              type="text"
+              id="search"
+              placeholder="Inception, RRR, Sholay, Breaking Bad..."
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <button id="searchBtn" class="search-btn">Search</button>
+          </div>
+          <div class="sort-row">
+            <label for="yearFilter">Year:</label>
+            <input type="number" id="yearFilter" placeholder="e.g. 2023" min="1900" max="2026" class="year-input">
+            <label for="sortBy">Sort:</label>
+            <select id="sortBy">
+              <option value="relevance">Relevance</option>
+              <option value="year_desc">Newest first</option>
+              <option value="year_asc">Oldest first</option>
+              <option value="title_asc">Title A–Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bg-text" aria-hidden="true">CINEMA</div>
+    </section>
+ 
+    <section class="results-section" id="resultsSection" style="display:none;">
+      <div class="results-meta" id="resultsMeta"></div>
+      <div class="results-grid" id="resultContainer"></div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+ 
+    <section class="watchlist-panel" id="watchlistPanel" style="display:none;">
+      <div class="watchlist-header">
+        <h2>Your Watchlist</h2>
+        <button id="closeWatchlist" class="close-btn">&#10005;</button>
+      </div>
+      <div id="watchlistItems" class="watchlist-items"></div>
+    </section>
+ 
+  </main>
+ 
+  <div class="modal-overlay" id="modalOverlay" style="display:none;">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">&#10005;</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+ 
+  <div class="toast" id="toast"></div>
+ 
+  <footer>
+    <p>Powered by <a href="https://www.omdbapi.com" target="_blank">OMDb API</a> &nbsp;·&nbsp; &copy; 2026 CineSearch</p>
+  </footer>
+ 
+  <script src="/js/script.js"></script>
 </body>
 </html>
+ 
